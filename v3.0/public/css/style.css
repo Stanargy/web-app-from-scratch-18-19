@@ -318,11 +318,6 @@ card-logo{
     
 }
 
-.card:nth-child(odd){
-   
-
-}
-
 .card:nth-child(even){
     
    background-color: rgb(199, 252, 189);
@@ -353,9 +348,7 @@ card-logo{
 
 
 }
-.product-detail h5{
-    
-}
+
 /* img{
     width: var(--imgWidth);
     height: var(--imgHeight);
