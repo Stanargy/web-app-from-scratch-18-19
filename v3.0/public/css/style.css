@@ -193,8 +193,6 @@ ul{
     padding: 0;
 }
 
-h1{
-}
 
 .GlobalContainer {
     /* display: none; */
@@ -217,7 +215,7 @@ h1{
 
 .Title {
     grid-column: 2/4;
-    grid-rows: 1/4;
+    grid-row: 1/4;
     font-size: var(--fontSizeTitle);
     border: 1px solid black;;
     height: 10vw;
