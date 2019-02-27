@@ -33,4 +33,3 @@ To install the project just fork it and clone it to your device!
 ## 7. Design Decisions
 
 ## 8. To-do
-
