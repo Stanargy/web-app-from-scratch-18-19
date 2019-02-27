@@ -36,12 +36,10 @@ function getCurrentTime() {
 
 
 function requestAPIFoodGroups() {
-    console.log('new api call -- looking up food groups')
+    //console.log('new api call -- looking up food groups')
     var endpoint = 'https://api.nal.usda.gov/ndb/list?format=json&lt=g&sort=n&api_key=' + key;
     var url = endpoint;
-    
-    console.log('the total url = ' + url)
-    
+    //console.log('the total url = ' + url)
     fetch(url)
     .then((res) => res.json())
     .then(res => {
@@ -82,22 +80,15 @@ function requestAPIFoodGroups() {
 
 
 function callAPIProducts(fgID) {
-    // need to change the fgID tag in url below to match &fg=
-    // for(var i = 0; i < fgID_fgName.length; i++){
-    //     fgID.push("&fg=" +     
-    //     console.log(fgID)
     var queryURL = '';
-for(var i = 0; i < queryString.length; i++){
-    queryURL += (queryString[i])
-}
-//console.log(queryURL)
-
     var url = 'https://api.nal.usda.gov/ndb/search/?format=json&q=' + queryURL + '&sort=n&max=25&offset=0' + fgID + '&api_key=' + key;
-    console.log('the total url = ' + url)
+    for(var i = 0; i < queryString.length; i++){
+        queryURL += (queryString[i])
+    }
+
     fetch(url)
     .then((res) => res.json())
     .then((res) => {
-       // console.log(res)
         //need to insert caching before templateFunction is called
         templateFunction(res);
         })
@@ -105,42 +96,19 @@ for(var i = 0; i < queryString.length; i++){
 }
 
 
-
-
-///////////////////////API REQUEST
 function callAPI(productNumber) {
     console.log('new api call for ' + productNumber);
-
     var url = 'https://api.nal.usda.gov/ndb/reports/?ndbno=' + productNumber + '&type=b&format=json&api_key=' + key;
-    // var endpoint =  'https://api.nal.usda.gov/ndb/V2/reports?ndbno=' + productNumber + '&type=b&format=json&api_key=' + key;
-    // var endpoint = 'https://api.nal.usda.gov/ndb/search/?format=json&q=' + searchQuery + '&max=25&offset=0&api_key=' + key; 
-    // https://api.nal.usda.gov/ndb/V2/reports?ndbno=01009&type=b&format=json&api_key=DEMO_KEY
-    // Browser: https://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=DEMO_KEY&nutrients=205&nutrients=204&nutrients=208&nutrients=269&ndbno=01009
-
-
-
-   // console.log('the total url = ' + url)
-    // saveInLocalStorage(testObject);
-
     fetch(url)
-        .then((res) => res.json())
-        .then(res => {
-            //Enter target id or class
-            //var htmlTarget = '#templateAPI';
-
-            //console.log(res);
-            // for (var i = 0; i < APIResponse.recipes.length; i++) {
-            for (var i = 0; i < 8; i++) {
-
-
-                saveInSessionStorage(res, productNumber);
-
-                console.log('sessionStorage.length = ' + sessionStorage.length + ' at the end of script')
-                return console.log('________________________________________________________Succesfully Rendered To Template');
-
-            };
-        })
-        .catch(err => console.log(err));
+    .then((res) => res.json())
+    .then(res => {
+        for (var i = 0; i < 8; i++) {
+            saveInSessionStorage(res, productNumber);
+            console.log('sessionStorage.length = ' + sessionStorage.length + ' at the end of script')
+            return console.log('________________________________________________________Succesfully Rendered To Template');
+        };
+    })
+    .catch(err => console.log(err));
 };
 
 // All foods:
