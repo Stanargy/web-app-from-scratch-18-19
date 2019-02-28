@@ -70,7 +70,7 @@ function saveInSessionStorage(APIResponse) {
 function displayDetail(data){
         var data = JSON.parse(sessionStorage.getItem('keyOfAPIResponse'));
         console.log(data);
-        templateDetail(data, '.card');
+        templateDetail(data, '#templateAPI');
 }
 
 function display(APIResponseString) {

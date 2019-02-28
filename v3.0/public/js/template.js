@@ -51,7 +51,7 @@ function resetSelectedCat() {
 }
 
 
-function templateCategories(APIResponse, targetHTML) {
+function templateCategories(APIResponse) {
     return `
         <div class="categories"><option>${APIResponse.name}</option></div> 
         `
@@ -76,12 +76,11 @@ function templateCategories(APIResponse, targetHTML) {
         
         
         function templateProducts(res) {
-            var node = document.createElement("P");
+            var node = document.createElement("DIV");
             //  console.log(res.id)
-            node.innerHTML =  `<div>
+            node.innerHTML =  `
             <a class="productName" href="#home&${res.ndbno}">${res.name}</a>
-            
-            </div> `
+            `
             //console.log(res.id)
             document.querySelector(targetHTML2).appendChild(node);
             document.querySelector(targetHTML2).getElementsByTagName("A")
@@ -100,22 +99,28 @@ function templateCategories(APIResponse, targetHTML) {
     function templateProductNutrients(data) {
         return `
         
-        <strong>${data.name}</strong> ${data.unit} = ${data.value} <br> 
+        <strong>${data.name}:</strong> ${data.value}/${data.unit} 
         `
     }
     
     
     function templateDetail(data, targetHTML) {
        // console.log('templating detail page' + 'data = ' + data+ '______' + 'targetHTML= ' + targetHTML)
-        document.querySelector('.productName').style.display = "none";
+       // document.querySelector('.productName').style.display = "none";
         document.querySelector(targetHTML).innerHTML = `
-        <div class="GlobalContainer"> 
-           
-                <div class="card-head"> ${data.report.food.name}
+        
+        <div class="card"> 
+        <div>
+            <h1>
+            Nutritional values
+            </h1>
+            </div>
+        
+            <div class="card-head"> ${data.report.food.name}<div>
                 
                 
                 <div class="product-detail"> ${data.report.food.nutrients.map(templateProductNutrients).join('')}
-                </div>
+              
             </div>
         </div>
         `

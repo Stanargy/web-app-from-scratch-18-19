@@ -59,6 +59,7 @@ function setLayoutHome(){
             callAPI(id)
             setTimeout(1000);
             setLayoutDetail(id);
+            initializeRoute();
         },
         
         // tip, call: templating actor!!!

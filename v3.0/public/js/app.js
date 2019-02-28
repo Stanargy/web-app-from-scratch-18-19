@@ -10,13 +10,14 @@ var selectedCatFirstTime = 0;
 var categoryArray = [];
 
 var getHome = function(){
-    window.location.hash = '#home'
-    return;
+    window.location.hash = '#home';
+    window.location.reload();
+
 }
 
 function addToUrlInput() {
     console.log(document.getElementById("searchQueryInput").value)
-    var fgID = '';
+    var fgID = ''; // FoodGroup ID
     for(var i = 0; i < categoryArray[0].item.length; i++) {
         if(selectedCatArray[0] === categoryArray[0].item[i].name) {
             fgID = fgID.concat("&fg=")
@@ -41,7 +42,9 @@ function requestAPIFoodGroups() {
     var url = endpoint;
     //console.log('the total url = ' + url)
     fetch(url)
+    .catch(err => console.log(err))
     .then((res) => res.json())
+    .catch(err => console.log(err))
     .then(res => {
         categoryArray.push(res.list);
        // console.log(res);
@@ -81,18 +84,25 @@ function requestAPIFoodGroups() {
 
 function callAPIProducts(fgID) {
     var queryURL = '';
-    var url = 'https://api.nal.usda.gov/ndb/search/?format=json&q=' + queryURL + '&sort=n&max=25&offset=0' + fgID + '&api_key=' + key;
+    var url = 'https://api.nal.usda.gov/ndb/search/?format=json&q=' + queryURL + '&sort=n&max=100&offset=0' + fgID + '&api_key=' + key;
     for(var i = 0; i < queryString.length; i++){
         queryURL += (queryString[i])
     }
 
     fetch(url)
     .then((res) => res.json())
+    .catch(err => console.log(err))
     .then((res) => {
         //need to insert caching before templateFunction is called
         templateFunction(res);
-        })
-        .catch(err => console.log(err));
+        
+    })
+    .catch(err => console.log(err))
+    .then((queryURL, fgID) =>{
+        queryURL = '';
+        fgID = '';
+    })
+    .catch(err => console.log(err));
 }
 
 
