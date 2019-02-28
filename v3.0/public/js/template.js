@@ -28,7 +28,9 @@ function templateSelectedCat() {
     for (var i = 0; i < selectedCatArray.length; i++) {
         document.querySelector(targetHTML3).innerHTML = `
         
-        <div class="selectedCategorie"><p>${selectedCatArray}</p><button onclick=resetSelectedCat()><i class="fas fa-backspace fa-x3"></i></button></div>
+        <div class="selectedCategorie"><p>${selectedCatArray}</p><button onclick=resetSelectedCat()>
+            <i class="fas fa-backspace fa-x3"></i></button>
+        </div>
         `
     }
 }
@@ -40,6 +42,7 @@ function resetSelectedCat() {
         selectedCatArray.pop();
         console.log('deleted newest filter');
         console.log(selectedCatArray)
+    
     } else {
         console.log('No Filter Applied')
         console.log(selectedCatArray.length);
@@ -75,7 +78,7 @@ function templateCategories(APIResponse, targetHTML) {
         function templateProducts(res) {
             var node = document.createElement("P");
             //  console.log(res.id)
-            node.innerHTML =  `<div class="card">
+            node.innerHTML =  `<div>
             <a class="productName" href="#home&${res.ndbno}">${res.name}</a>
             
             </div> `

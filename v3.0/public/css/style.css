@@ -24,7 +24,7 @@
     --invisible: rgba(255, 255, 255, 0);
 
     --boxColor1: rgb(231, 252, 231);
-    --boxColor2:   background: linear-gradient(90deg, rgba(250,255,161,0.8105523459383753) 28%, rgba(246,255,61,1) 71%);
+    --boxColor2: Linear-gradient(90deg, rgba(250,255,161,0.8105523459383753) 28%, rgba(246,255,61,1) 71%);
     --boxLight: #5FD45F;
     --boxMedium: #39C339;
     --boxDark: #089208;
@@ -137,6 +137,13 @@ nav > p:hover{
 
 }
 
+
+#box > h3{
+    grid-column: 1/4;
+    font-size: 3rem;
+
+}
+
 #box:hover{
     background: var(--hoverColor);
     transition: 0.5s;
@@ -241,6 +248,17 @@ ul{
 #box > h2{
     transition: 1s;
 }
+#box2{
+    grid-column: 2/4;
+    margin: var(--MarginSize);
+    grid-template-columns: 1fr 1fr;
+    margin:0;
+}
+
+.selectedCategorie{
+    grid-column: 1/2;
+}
+
 
 
 #container{
@@ -267,10 +285,6 @@ i{
     font-weight: 500;
     transition:0.1s;
     
-}
-#box2{
-    grid-column: 1/4;
-    margin: calc(--MarginSize + 10px);
 }
 
 #templateAPICategories{
