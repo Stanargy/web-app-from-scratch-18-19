@@ -33,3 +33,28 @@
 
     }
 }
+
+
+@keyframes fadeInput{
+    0%{
+        
+
+
+
+    }
+    100%{
+        background: var(--hoverColor);
+        transition: 0.5s;
+        border-radius: 10vw;
+        margin-right: 10vw;
+        margin-left: 10vw;
+        padding-bottom: 4vw;
+        border-top: 2px solid black;
+        border-right: 2px solid black;
+        border-left: 2px solid black;
+        box-shadow: var(--shadowHoverMiddle);
+
+
+
+    }
+}

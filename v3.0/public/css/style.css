@@ -116,7 +116,7 @@ nav > p:hover{
     animation-name: subTitleFadeIn;
     animation-fill-mode: backwards;
     animation-play-state: running;
-    animation-duration: 5s;
+    animation-duration: 1s;
     animation-iteration-count: 1;
     
 }
@@ -349,9 +349,9 @@ card-logo{
     border-top: 3px solid rgba(0, 0, 0, 0.63);
     border-left: 3px solid rgba(0, 0, 0, 0.63);
     background-color: #dddd;
-    padding-top: 1vw;
+    padding-top: 0.2vw;
     transition:0.2s;
-    height: 6vw;
+    vertical-align: center;
     font-size: 120%;
     z-index:100;
     
@@ -362,12 +362,12 @@ card-logo{
     border-top: 3px solid rgba(0, 0, 0, 0.63);
     border-right: 3px solid rgba(0, 0, 0, 0.63);
     background-color: #dddd;
-    padding-top: 1vw;
+    padding-top: 0.2vw;
+    vertical-align: center;
     transition:0.2s;
     height: 6vw;
     font-size: 120%;
-    z-index:100;
-    
+    z-index:100;  
 }
 
 .product-detail{
@@ -417,7 +417,7 @@ card-logo{
 #templateAPI{
     display: grid;
     grid-row: 1/3;
-    grid-column: 1/3;
+    grid-column: 1/2;
     display: grid;
     grid-template-columns: 50% 50%;
     margin-left: 10vw;

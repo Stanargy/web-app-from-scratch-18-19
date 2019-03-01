@@ -92,5 +92,12 @@ footer{
       .product-detail{
         grid-template-columns: 1fr 1fr;
     }
+    .container >div{
+        background-color:--invisible;
+    }
+    .container >div:hover{
+        background-color:#dddd;
+        z-index:10000;
+    }
 
 }

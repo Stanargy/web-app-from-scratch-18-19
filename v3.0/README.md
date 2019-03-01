@@ -22,7 +22,12 @@ To install the project just fork it and clone it to your device.
 Then launch the "v3.0" folder. 
 
 ## 3. Features
+This Application connects to an API and retrieves the following items in current order:
+1. List of Foodgroups.
+2. List of products matching a food category and a specific search quer.
+3. List of nutrients of a product selected by the user.
 
+After a product has been looked up it's database ID will be saved in the session storage. When a user looks up the same product again the application will render the data from the session storage instead.
 
 ## 4. API
 The data that is collected is served from an API from the United States Department Of Agriculture which is called "USDA Food Composition Database."
@@ -89,8 +94,19 @@ function callAPI(productNumber) {
 
 ## 5. Actor Diagram
 ![Actor Diagram Image](public/img/ActorDiagram.JPG)
+
+
 ## 6. Interaction Diagram
+![Interaction Diagram Image](public/img/InteractionDiagram.JPG)
 
 ## 7. Design Decisions
+The current layout is responsive to different screen width's and user interactions. 
+The navigation menu on top has no use so far since there are no url's linked to the symbols except for the arrow button which brings the view back to x,y= 0,0 (top-left).
 
 ## 8. To-do
+- Reimplementate caching for the ndbno-number.
+- clean up by deleting old commented code.
+- add classes and restructure code.
+- fix layout problem of #templateAPI // The text isn't clearly visible and overlaps. It is 1 section used to template different     looked up recipes from the API and the nutritional value card.
+
+
